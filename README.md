@@ -1,7 +1,7 @@
-## Project title
+## PROJECT
 Printf project
 
-## Project description
+## DESCRIPTION
 This team project is part of the first year curriculum of ALX. _printf replicates the C standard library printf() function.
 
 > What you should learn from this project:
@@ -10,7 +10,7 @@ This team project is part of the first year curriculum of ALX. _printf replicate
 > - The complexities of printf
 > - Managing a lot of files and finding a good workflow
 
-## Tasks
+## TASKS
 Write a function that produces output according to a format.
 
 **Prototype:**
@@ -30,3 +30,10 @@ s
 - You don’t have to handle field width
 - You don’t have to handle precision
 - You don’t have to handle the length modifiers
+
+## RESOURCES
+[Format specification syntax]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-170")
+
+%[[``flags``]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-170#flags")][[``width``]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-170#width")][[``.precision``]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-170#precision")][[``size``]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-170#size")][``type``]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-170#type")
+
+[Parameter validation]("https://learn.microsoft.com/en-us/cpp/c-runtime-library/parameter-validation?view=msvc-170")
