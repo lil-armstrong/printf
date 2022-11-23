@@ -1,0 +1,1 @@
+%[flags][width][.precision][size][type]
