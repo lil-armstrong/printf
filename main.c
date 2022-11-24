@@ -1,6 +1,5 @@
 #include <limits.h>
-#include <stdio.h>
-#include "../main.h"
+#include "main.h"
 
 int print_var_arg(int, ...);
 /**
@@ -8,7 +7,7 @@ int print_var_arg(int, ...);
  *
  * Return: Always 0
  */
-/* int main(void)
+int main(void)
 {
     int len;
     int len2;
@@ -39,14 +38,8 @@ int print_var_arg(int, ...);
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
-    return (0);
-} */
-
-int main(void)
-{
-    print_var_arg(2, 2, 3);
+    /*  _printf("Unknown:[%r]\n");
+     printf("Unknown:[%r]\n"); */
     return (0);
 }
 

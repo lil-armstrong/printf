@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
             precision = get_precision(format, &i, list);
             size = get_size(format, &i);
             ++i;
-            printed = handle_conversion(format, &i, listm buffer,
+            printed = handle_conversion(format, &i, list, buffer,
                                         flags, width, precision, size);
 
             if (printed == -1)
@@ -38,12 +38,11 @@ int _printf(const char *format, ...)
 
             printed_chars += printed;
         }
-
-        print_buffer(buffer, &buffer_index);
-        va_end(list);
-
-        return (printed_chars);
     }
+    print_buffer(buffer, &buffer_index);
+    va_end(list);
+
+    return (printed_chars);
 }
 
 void print_buffer(char buffer[], int *buffer_index)
