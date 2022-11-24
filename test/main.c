@@ -1,13 +1,14 @@
 #include <limits.h>
 #include <stdio.h>
-#include "main.h"
+#include "../main.h"
 
+int print_var_arg(int, ...);
 /**
  * main - Entry point
  *
  * Return: Always 0
  */
-int main(void)
+/* int main(void)
 {
     int len;
     int len2;
@@ -40,5 +41,30 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    return (0);
+} */
+
+int main(void)
+{
+    print_var_arg(2, 2, 3);
+    return (0);
+}
+
+int print_var_arg(int size, ...)
+{
+    va_list arg_ptr;
+    int i;
+
+    va_start(arg_ptr, size);
+
+    if (size <= 0)
+        return (-1);
+
+    for (i = 0; i < size; ++i)
+    {
+        printf("%d\n", va_arg(arg_ptr, int));
+    }
+    va_end(arg_ptr);
+
     return (0);
 }
