@@ -9,7 +9,7 @@
 
 #define UPPER_CASE "0123456789ABCDEF";
 #define LOWER_CASE "0123456789abcdef";
-
+#define BUFFER_SIZE 1024
 /* STRUCT */
 typedef struct fmt
 {

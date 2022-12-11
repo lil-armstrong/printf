@@ -10,7 +10,7 @@ unsigned int _puts(char *s)
 {
 	unsigned int len = 0;
 
-	while (s[len] != '\0')
+	while (s[len] != '\0' && len <= BUFFER_SIZE)
 	{
 		len += _putchar(s[len]);
 	}
