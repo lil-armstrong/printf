@@ -48,11 +48,12 @@ unsigned int handleConversion(const char *format, va_list args)
 	switch (*format)
 	{
 		case 'd':
+		case 'i':
 			s_int = va_arg(args, int);
 			return (_puts(parseInt(s_int, 1, 10)));
-		case 'i':
+		case 'b':
 			u_int = va_arg(args, unsigned int);
-			return (_puts(parseUnsignedInt(u_int, 1, 10)));
+			return (_puts(parseUnsignedInt(u_int, 1, 2)));
 		case 'u':
 			u_int = va_arg(args, unsigned int);
 			return (_puts(parseUnsignedInt(u_int, 1, 10)));

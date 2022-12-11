@@ -34,6 +34,8 @@ int main(void)
 	printf("String:[%s]\n", "I am a string !");
 	_printf("Address:[%p]\n", addr);
 	printf("Address:[%p]\n", addr);
+	_printf("Binary(98):%b\n", 98);
+	printf("Binary(98):%b\n", 98);
 	len = _printf("Percent:[]\n");
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
