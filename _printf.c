@@ -1,56 +1,79 @@
 #include "main.h"
+#include <fcntl.h>
 
+/**
+ * _printf - Prints fromatted string to STDOUT
+ * @format: The formatted string
+ * Return: Number of printed characters
+ */
 int _printf(const char *format, ...)
 {
-    va_list list;
-    int i = 0, buffer_index = 0,
-        flags, width, precision, size,
-        printed_chars = 0, printed = 0;
-    char buffer[BUFF_SIZE];
+	unsigned int nchars = 0;
+	va_list args;
 
-    if (format == NULL)
-        return (-1);
+	va_start(args, format);
 
-    va_start(list, format);
+	if (format == NULL)
+		return (-1);
 
-    for (; format && format[i] != '\0'; ++i)
-    {
-        if (format[i] != '%')
-        {
-            buffer[buffer_index++] = format[i];
-            if (buffer_index == BUFF_SIZE)
-                print_buffer(buffer, &buffer_index);
-            printed_chars++;
-        }
-        else
-        {
-            print_buffer(buffer, &buffer_index);
-            flags = get_flags(format, &i);
-            width = get_width(format, &i, list);
-            precision = get_precision(format, &i, list);
-            size = get_size(format, &i);
-            ++i;
-            printed = handle_conversion(format, &i, list, buffer,
-                                        flags, width, precision, size);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			nchars += handleConversion(format, args);
+		}
+		else
+			nchars += _putchar(*format);
 
-            if (printed == -1)
-                return (-1);
+		++format;
+	}
 
-            printed_chars += printed;
-        }
-    }
-    print_buffer(buffer, &buffer_index);
-    va_end(list);
-
-    return (printed_chars);
+	va_end(args);
+	return (nchars);
 }
 
-void print_buffer(char buffer[], int *buffer_index)
+/**
+ * handleConversion - handles format conversion logic
+ * @format: format string
+ * @args: variable arguments
+ * Return: number of handled conversion
+ */
+unsigned int handleConversion(const char *format, va_list args)
 {
-    if (*buffer_index > 0)
-    {
-        write(1, &buffer[0], *buffer_index);
+	unsigned int u_int, *address;
+	int s_int;
+	char *s;
 
-        *buffer_index = 0;
-    }
+	switch (*format)
+	{
+		case 'd':
+		case 'i':
+			s_int = va_arg(args, int);
+			return (_puts(parseInt(s_int, 1, 10)));
+		case 'u':
+			u_int = va_arg(args, unsigned int);
+			return (_puts(parseUnsignedInt(u_int, 1, 10)));
+		case 'o':{
+			u_int = va_arg(args, unsigned int);
+			return (_puts(parseUnsignedInt(u_int, 1, 8)));
+		}
+		case 'x':
+		case 'X':
+			u_int = va_arg(args, unsigned int);
+			return ((*format == 'X') ? _puts(parseUnsignedInt(u_int, 1, 16))
+				: _puts(parseUnsignedInt(u_int, 0, 16)));
+		case 'c':
+			s_int = va_arg(args, int);
+			return (_putchar((char) s_int));
+		case 's':
+			s = va_arg(args, char *);
+			return (_puts(s));
+		case 'p':
+			address = va_arg(args, unsigned int *);
+			return (_puts(addressHexToString((long) address)));
+		default:
+			_putchar('%');
+			return (_putchar(*format));
+	}
 }
