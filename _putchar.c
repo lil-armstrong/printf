@@ -1,6 +1,11 @@
 #include "main.h"
 
-int _putchar(char c)
+/**
+ * _putchar - Prints a single character to STDOUT
+ * @c: The character to print to STDOUT
+ * Return: The length of printed character
+ */
+unsigned int _putchar(char c)
 {
-    return (write(1, &c, 1))
+	return (write(STDOUT_FILENO, &c, 1));
 }

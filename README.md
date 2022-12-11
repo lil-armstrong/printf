@@ -22,7 +22,8 @@ int _printf(const char *format, ...);
 - Write output to stdout, the standard output stream
 - Format is a character string. The format string is composed of zero or more directives. See ``man 3 printf`` for more detail. 
 - You need to handle the following conversion specifiers:
-``c
+``
+c
 s
 %``
 - You don’t have to reproduce the buffer handling of the C library printf function
